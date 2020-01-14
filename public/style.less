@@ -1,0 +1,104 @@
+// out: css/style.css, compress: false, sourceMap: true
+
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Canvas
+    Theme URI: http://themes.semicolonweb.com/html/canvas
+    Description: The Multi-Purpose Template
+    Author: SemiColonWeb
+    Author URI: http://themeforest.net/user/semicolonweb
+    Version: 5.9
+
+    LESS Stylesheet
+
+-----------------------------------------------------------------------------------*/
+
+
+// Initialize
+@import "less/variables.less";
+@import "less/mixins.less";
+
+
+// Core CSS
+@import "less/typography.less";
+@import "less/helpers.less";
+@import "less/layouts.less";
+
+
+// Content Blocks
+@import "less/topbar.less";
+@import "less/header.less";
+@import "less/sliders.less";
+@import "less/pagetitle.less";
+@import "less/content.less";
+@import "less/portfolio.less";
+@import "less/blog.less";
+@import "less/shop.less";
+@import "less/events.less";
+
+
+// Shortcodes
+@import "less/shortcodes.less";
+
+
+// Footer
+@import "less/footer.less";
+
+
+// Widgets
+@import "less/widgets.less";
+
+
+// Extras
+@import "less/extras.less";
+
+#primary-menu ul li>a {
+    font-size: 18px !important;
+}
+
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    font-family: "微軟正黑體";
+}
+
+.margin-top0important {
+    margin-top: 0px !important;
+}
+
+.margin-top40important {
+    margin-top: 40px !important;
+}
+
+.padding-top0important {
+    padding-top: 0px !important;
+}
+
+.padding-top-l-important{
+    padding-top: 40px !important;
+}
+
+.padding-bottom-l-important {
+    padding-bottom: 40px !important;
+}
+
+.pagination {
+    a{
+        &.page-link{
+            color: @theme-color;
+        }
+
+        &:hover{
+            color: white ;
+        }
+
+    }
+
+}

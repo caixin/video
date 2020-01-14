@@ -1,0 +1,37 @@
+image: lorisleiva/laravel-docker:latest
+
+deploy-testing:
+  stage: deploy
+  script:
+    - ssh $SERVER_TOKEN_TEST -t "cd ${WEB_ROOT_TEST} && git pull && sh deploy.sh"
+  environment:
+    name: test
+    url: http://tv.f1good.com
+  only:
+    - develop
+  tags:
+    - iqqtv
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod -R 600 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    
+deploy-master:
+  stage: deploy
+  script:
+    - ssh $SERVER_TOKEN_MASTER -t "cd ${WEB_ROOT_MASTER} && git pull && sh deploy.sh"
+  environment:
+    name: master
+    url: http://mengtt1.com
+  only:
+    - master
+  tags:
+    - iqqtv
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY_MASTER" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod -R 600 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
